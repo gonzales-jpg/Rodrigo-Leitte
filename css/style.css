@@ -1,61 +1,431 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
-    background-color: #182b4a;
+/* Avenir LT Pro */
+
+/* Light */
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
 }
-#logo{
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProLightOblique.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Book (Regular) */
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProBook.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProBookOblique.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProMediumOblique.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Heavy */
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProHeavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProHeavyOblique.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* Black */
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProBlack.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProBlackOblique.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+/* Regular (Roman) */
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProRoman.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Regular Italic (Oblique) */
+@font-face {
+  font-family: 'Avenir';
+  src: url('../assets/fonts/AvenirLTProOblique.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: 'Avenir', Arial, sans-serif;
+  font-weight: 400;
+}
+h1, h2 {
+  font-weight: 800; /* Heavy */
+}
+h3 {
+  font-weight: 500; /* Medium */
+}
+p {
+  font-weight: 400; /* Regular */
+}
+em {
+  font-style: italic;
+}
+/* LOGO */
+#logo {
   width: 40vw;
   max-width: 280px;
   height: auto;
+}
 
-}
-#borda-superior{
-    background-color: #a09f9d;
-    width: 100%;
-    padding: 16px 0;
+/* HEADER */
+#borda-superior {
+  background-color: #182b4a;
+  width: 100%;
+  height: 78px;                 /* altura controlada */
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f5f5f5;
 
+  position: relative;
+  z-index: 1002;
 }
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
-}   
-.menu-btn{
-    font-size: 32px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 999;
+
+/* NAV */
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
 }
-.menu li{
-    margin: 16px 0;
+
+/* BOTÃO HAMBÚRGUER */
+.menu-btn {
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  line-height: 1;
+
+  position: relative;
+  z-index: 1003; /* acima de tudo */
 }
-.menu a{
-    text-decoration: none;
-    color: #182b4a;
-    font-size: 18px;
-}
-.menu.ativo{
-    display: block;
-    background-color: #ffffff;
-    height: 100%;
-}
+
+/* MENU LATERAL */
 .menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
+  position: fixed;
+  top: 78px;                /* 👈 começa abaixo do header */
+  right: 0;
 
-    width: 70%;
-    max-width: 300px;
-    height: 100vh;
+  width: 70%;
+  max-width: 300px;
+  height: calc(100vh - 78px); /* ocupa o resto da tela */
 
-    background-color: #ffffff;
+  background-color: #182b4a;
 
-    list-style: none;
-    padding: 80px 24px;
+  list-style: none;
+  padding: 24px;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+
+  z-index: 1000;            /* abaixo do header */
 }
+
+/* MENU ABERTO */
+.menu.ativo {
+  transform: translateX(0);
+}
+
+/* ITENS DO MENU */
+.menu-item {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.menu-item a {
+  display: block;
+  padding: 16px 0;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+}
+h1{
+    font-size: large;
+    color: #182b4a;
+}
+.hero{
+    padding: 48px 16px;
+    text-align: center;
+    color: #182b4a;
+}
+hero h1{
+    font-size:28px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+.hero p{
+    font-size: 16px;
+    font-weight: 400;
+    max-width: 500px;
+    margin: 0 auto 40px;
+    color: #a09f9d;
+}
+.cards {
+  display: flex;
+  gap: 16px;
+
+  overflow-x: auto;      
+  padding-bottom: 8px;
+
+  scroll-snap-type: x mandatory;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 260px;        
+  background-color: #182b4a;
+  color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+
+  scroll-snap-align: start;
+
+}
+.card h3{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.card p{
+    font-size: 14px;
+    line-height: 1.4;
+    color: #ffffff;
+}
+.cards::-webkit-scrollbar {
+  display: none;
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.card-btn {
+  display: inline-block;
+  margin-top: auto;
+
+  padding: 12px 16px;
+  border-radius: 8px;
+
+  background-color: #ffffff;
+  color: #182b4a;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+.steps {
+  padding: 48px 16px;
+  background-color:  #182b4a;
+  color: #ffffff;
+}
+
+.steps h2 {
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+.steps h2 span {
+  font-weight: 800;
+}
+.steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+
+  border-radius: 50%;
+  background-color: #a09f9d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  color: #182b4a;
+}
+
+.step p {
+  font-size: 16px;
+}
+.step.final .step-number {
+  background-color: #a09f9d;
+  font-size: 18px;
+}
+
+.step.final p {
+  font-weight: 600;
+}
+.steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative; /* 🔑 referência da linha */
+}
+.steps-list::before {
+  content: '';
+  position: absolute;
+
+  left: 18px;                 /* metade da bolinha (36px / 2) */
+  top: 0;
+  bottom: 0;
+
+  width: 2px;
+  background-color: #a09f9d;
+}
+.step-number {
+  position: relative;
+  z-index: 1; /* bolinha na frente da linha */
+}
+.steps-list::before {
+  top: 18px;
+  bottom: 36px;
+}
+.about-consorcio {
+  padding: 48px 16px;
+  background-color: #ffffff;
+  color: #182b4a;
+}
+
+.about-consorcio h2 {
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.about-consorcio h2 span {
+  font-weight: 800;
+}
+
+.about-consorcio p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+.about-link {
+  display: inline-block;         
+  margin-top: 8px;
+
+  padding: 12px 20px;          
+  border-radius: 8px;
+
+  background-color: #182b4a;
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.why-rleitte {
+  background-color:  #182b4a; /* vermelho do print */
+  color: #ffffff;
+  padding: 48px 16px;
+}
+.why-content h2 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.why-content h2 span {
+  font-weight: 800;
+}
+
+.why-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.why-image img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.why-numbers {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.number-item strong {
+  font-size: 28px;
+  font-weight: 800;
+  display: block;
+}
+
+.number-item span {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
