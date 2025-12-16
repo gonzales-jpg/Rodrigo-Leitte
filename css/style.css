@@ -194,7 +194,8 @@ nav {
   font-size: 16px;
 }
 h1{
-    font-size: large;
+    font-size: 26px;
+    font-weight: 400;
     color: #182b4a;
 }
 .hero{
@@ -428,4 +429,181 @@ hero h1{
   font-size: 15px;
   line-height: 1.4;
 }
+.vantagens {
+  padding: 48px 16px;
+  background-color: #a09f9d;
+  color: #182b4a;
+}
+
+.vantagens h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: white;
+}
+.vantagens-cards {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+}
+
+.vantagem-card {
+  min-width: 280px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.vantagem-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.vantagem-tag {
+  display: block;
+  margin: 16px 16px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #8a8a8a;
+}
+.vantagem-card h3 {
+  font-size: 18px;
+  margin: 0 16px 12px;
+}
+
+.vantagem-card p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 16px 24px;
+}
+.vantagens-cards::-webkit-scrollbar {
+  display: none;
+}
+.vantagens-cards {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+
+  margin-left: -16px;
+  margin-right: -16px;
+
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.cards {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+
+  /* 👇 anula o padding da seção */
+  margin-left: -16px;
+  margin-right: -16px;
+
+  /* 👇 mantém respiro interno */
+  padding-left: 16px;
+  padding-right: 16px;
+}
+/* FAQ */
+.faq {
+  background-color: #ffffff; /* garante fundo branco */
+  padding: 64px 16px;        /* espaço em cima, embaixo e laterais */
+}
+
+/* CONTAINER INTERNO (centraliza e remove margens estranhas) */
+.faq > * {
+  max-width: 480px;          /* largura boa para mobile */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* TÍTULO */
+.faq h2 {
+  font-size: 26px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #182b4a;
+}
+
+.faq h2 strong {
+  font-weight: 800;
+}
+
+/* SUBTÍTULO */
+.faq-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+/* LISTA */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ITEM */
+.faq-item {
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* PERGUNTA */
+.faq-question {
+  width: 100%;
+  padding: 16px;
+
+  background: none;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #000;
+}
+
+/* TEXTO DA PERGUNTA */
+.faq-question span:first-child {
+  flex: 1;
+}
+
+/* ÍCONE */
+.faq-question .icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+  color: #000;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+
+  padding: 0 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.ativo .faq-answer {
+  max-height: 1000px;      /* 🔑 aumente bastante */
+  padding-top: 12px;
+  padding-bottom: 16px;
+}
+.faq-answer p + p {
+  margin-top: 12px;
+}
+
 
